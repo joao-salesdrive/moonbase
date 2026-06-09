@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoonBase — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="moonbase.css">
+</head>
+<body>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero__left">
+      <p class="hero__eyebrow">MoonBase</p>
+      <h1 class="hero__title">Bem-vindo</h1>
+      <div class="status-badge" id="status-badge">Base Estável</div>
+    </div>
+
+    <div class="hero__right">
+      <img
+        id="hero-img"
+        src="./img/Base_status_03_estavel.png"
+        alt="Base lunar"
+        title="Clique para alternar o status da base"
+      >
+    </div>
+  </section>
+
+  <!-- ── Cards ── -->
+  <main class="cards-section">
+    <div class="cards-grid">
+
+      <!-- Energia -->
+      <article class="card">
+        <header class="card__header">
+          <img src="./img/power.svg" class="card__icon" width="18" height="18" alt="">
+          <span class="card__title">Energia</span>
+        </header>
+
+        <div class="card__metric">
+          <span class="metric__value" data-key="energia-valor">80</span>
+          <span class="metric__unit">%</span>
+        </div>
+        <p class="metric__label">Carga das baterias</p>
+        <div class="card__badge" id="badge-energia" data-key="energia-badge">Normal</div>
+
+        <div class="card__spacer"></div>
+        <hr class="card__divider">
+
+        <div class="sub-grid sub-grid--3">
+          <div>
+            <p class="sub-item__value"><span data-key="energia-ciclos">42</span><span class="sub-item__value--muted"> kwh</span></p>
+            <p class="sub-item__label">Ciclos</p>
+          </div>
+          <div>
+            <p class="sub-item__value"><span data-key="energia-autonomia">92</span> dias</p>
+            <p class="sub-item__label">Autonomia</p>
+          </div>
+          <div>
+            <p class="sub-item__value" data-key="energia-modo">Eco</p>
+            <p class="sub-item__label">Modo</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Água -->
+      <article class="card">
+        <header class="card__header">
+          <img src="./img/droplet.svg" class="card__icon" width="18" height="18" alt="">
+          <span class="card__title">Água</span>
+        </header>
+
+        <div class="bar-section">
+          <div class="bar__track">
+            <div class="bar__fill" id="agua-bar" style="width: 95%"></div>
+          </div>
+          <div class="bar__labels">
+            <span>Reservatório</span>
+            <span data-key="agua-pct">95%</span>
+          </div>
+        </div>
+
+        <div class="data-row">
+          <span class="data-row__label">Reciclagem</span>
+          <span class="data-row__value" data-key="agua-reciclagem">98,2%</span>
+        </div>
+
+        <div class="card__spacer"></div>
+        <hr class="card__divider">
+
+        <div class="sub-grid sub-grid--3">
+          <div>
+            <p class="sub-item__value"><span data-key="agua-litros">100</span><span class="sub-item__value--muted">.000</span></p>
+            <p class="sub-item__label">Litros</p>
+          </div>
+          <div>
+            <p class="sub-item__value" data-key="agua-qualidade">Boa</p>
+            <p class="sub-item__label">Qualidade</p>
+          </div>
+          <div>
+            <p class="sub-item__value" data-key="agua-dias">110</p>
+            <p class="sub-item__label">Dias</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Oxigênio -->
+      <article class="card">
+        <header class="card__header">
+          <img src="./img/wind.svg" class="card__icon" width="18" height="18" alt="">
+          <span class="card__title">Oxigênio</span>
+        </header>
+
+        <div class="card__metric">
+          <span class="metric__value" data-key="o2-valor">21</span>
+          <span class="metric__unit">%</span>
+        </div>
+        <p class="metric__label">Concentração de O<sub>2</sub></p>
+
+        <div class="data-row">
+          <span class="data-row__label">Reserva</span>
+          <span class="data-row__value" data-key="o2-reserva">96 dias</span>
+        </div>
+
+        <div class="card__spacer"></div>
+        <hr class="card__divider">
+
+        <div class="sub-grid sub-grid--2">
+          <div>
+            <p class="sub-item__value" data-key="o2-co2">412 ppm</p>
+            <p class="sub-item__label">CO<sub>2</sub> atual</p>
+          </div>
+          <div>
+            <p class="sub-item__value" data-key="o2-pressao">101,3 kPa</p>
+            <p class="sub-item__label">Pressão</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Alimentos -->
+      <article class="card">
+        <header class="card__header">
+          <img src="./img/heart.png" class="card__icon" width="18" height="18" alt="">
+          <span class="card__title">Alimentos</span>
+        </header>
+
+        <div class="card__metric">
+          <span class="metric__value" data-key="food-valor">365</span>
+        </div>
+        <p class="metric__label">Dias de autonomia</p>
+        <div class="card__badge" id="badge-food">Estufa ativa</div>
+
+        <div class="card__spacer"></div>
+        <hr class="card__divider">
+
+        <div class="sub-grid sub-grid--2">
+          <div>
+            <p class="sub-item__value" data-key="food-kcal">2200</p>
+            <p class="sub-item__label">Kcal/dia</p>
+          </div>
+          <div>
+            <p class="sub-item__value" data-key="food-producao">4,8 kg/sem</p>
+            <p class="sub-item__label">Produção</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script>
+    const STATES = [
+      {
+        id: 'estavel',
+        img: './img/Base_status_03_estavel.png',
+        badge: 'Base Estável',
+        badgeClass: 'status-badge',
+        data: {
+          'energia-valor':    '80',
+          'energia-badge':    'Normal',
+          'energia-ciclos':   '42',
+          'energia-autonomia':'92',
+          'energia-modo':     'Eco',
+          'agua-pct':         '95%',
+          'agua-reciclagem':  '98,2%',
+          'agua-litros':      '100',
+          'agua-qualidade':   'Boa',
+          'agua-dias':        '110',
+          'o2-valor':         '21',
+          'o2-reserva':       '96 dias',
+          'o2-co2':           '412 ppm',
+          'o2-pressao':       '101,3 kPa',
+          'food-valor':       '365',
+          'food-kcal':        '2200',
+          'food-producao':    '4,8 kg/sem',
+        },
+        barWidth: 95,
+        accentColor: '#4fc3f7',
+        badgeBorder: '#1e4a6e',
+      },
+      {
+        id: 'instavel',
+        img: './img/Base_status_02_instavel.png',
+        badge: 'Base Instável',
+        data: {
+          'energia-valor':    '45',
+          'energia-badge':    'Alerta',
+          'energia-ciclos':   '28',
+          'energia-autonomia':'31',
+          'energia-modo':     'Economia',
+          'agua-pct':         '52%',
+          'agua-reciclagem':  '84,1%',
+          'agua-litros':      '55',
+          'agua-qualidade':   'Regular',
+          'agua-dias':        '48',
+          'o2-valor':         '18',
+          'o2-reserva':       '38 dias',
+          'o2-co2':           '890 ppm',
+          'o2-pressao':       '98,7 kPa',
+          'food-valor':       '120',
+          'food-kcal':        '1800',
+          'food-producao':    '2,1 kg/sem',
+        },
+        barWidth: 52,
+        accentColor: '#f59e0b',
+        badgeBorder: '#78350f',
+      },
+      {
+        id: 'critico',
+        img: './img/Base_status_01_critico.png',
+        badge: 'Base Crítica',
+        data: {
+          'energia-valor':    '12',
+          'energia-badge':    'Crítico',
+          'energia-ciclos':   '8',
+          'energia-autonomia':'6',
+          'energia-modo':     'Emergência',
+          'agua-pct':         '18%',
+          'agua-reciclagem':  '61,0%',
+          'agua-litros':      '19',
+          'agua-qualidade':   'Crítica',
+          'agua-dias':        '11',
+          'o2-valor':         '15',
+          'o2-reserva':       '9 dias',
+          'o2-co2':           '1840 ppm',
+          'o2-pressao':       '94,2 kPa',
+          'food-valor':       '22',
+          'food-kcal':        '1400',
+          'food-producao':    '0,4 kg/sem',
+        },
+        barWidth: 18,
+        accentColor: '#ef4444',
+        badgeBorder: '#7f1d1d',
+      },
+    ];
+
+    let current = 0;
+
+    const heroImg    = document.getElementById('hero-img');
+    const statusBadge = document.getElementById('status-badge');
+    const aguaBar    = document.getElementById('agua-bar');
+    const badgeEnergia = document.getElementById('badge-energia');
+    const badgeFood  = document.getElementById('badge-food');
+
+    function applyState(state) {
+      // hero image + badge text
+      heroImg.style.opacity = '0';
+      setTimeout(() => {
+        heroImg.src = state.img;
+        heroImg.style.opacity = '1';
+      }, 200);
+
+      statusBadge.textContent = state.badge;
+      statusBadge.style.color        = state.accentColor;
+      statusBadge.style.borderColor  = state.badgeBorder;
+
+      // pulse dot color via CSS variable on the element
+      statusBadge.style.setProperty('--dot-color', state.accentColor);
+
+      // bar
+      aguaBar.style.width      = state.barWidth + '%';
+      aguaBar.style.background = state.accentColor;
+
+      // card badges
+      badgeEnergia.textContent   = state.data['energia-badge'];
+      badgeEnergia.style.color   = state.accentColor;
+      badgeEnergia.style.borderColor = state.badgeBorder;
+
+      badgeFood.style.color      = state.accentColor;
+      badgeFood.style.borderColor = state.badgeBorder;
+
+      // all keyed spans
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.dataset.key;
+        if (key !== 'energia-badge' && state.data[key] !== undefined) {
+          el.textContent = state.data[key];
+        }
+      });
+    }
+
+    heroImg.addEventListener('click', () => {
+      current = (current + 1) % STATES.length;
+      applyState(STATES[current]);
+    });
+
+    // make cursor a pointer to hint it's clickable
+    heroImg.style.cursor = 'pointer';
+  </script>
+
+</body>
+</html>
