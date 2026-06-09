@@ -2,6 +2,8 @@
 
 Interface de gestão em tempo real dos sistemas vitais de uma base lunar habitada. Desenvolvido como projeto acadêmico, o dashboard centraliza monitoramento de energia, água, oxigênio e alimentos em um único painel responsivo.
 
+Vídeo pitch: https://www.loom.com/share/7b9b421bf987484d897fb8c6a058a2fc
+
 ---
 
 ## Visão geral
